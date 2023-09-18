@@ -1,5 +1,5 @@
 import React from 'react';
-import PhoneList from "../organisms/PhoneList";
+import PhoneList from "../components/organisms/PhoneList";
 
 const HomePage=()=>{
     return <PhoneList/>;

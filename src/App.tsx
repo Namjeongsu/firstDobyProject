@@ -4,7 +4,7 @@ import {AppRouter} from "./routes/AppRouter";
 
 const App = () => {
     const client = new ApolloClient({
-        uri: 'https://moviethree.synology.me/back/graphiql?path=/back/graphql', // GraphQL 서버 URL
+        uri: 'https://moviethree.synology.me/back/graphql', // GraphQL 서버 URL
         cache: new InMemoryCache() // fetching이 이루어진 query 캐싱 처리
     });
     return(

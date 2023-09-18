@@ -1,5 +1,5 @@
 import React from 'react'
-import UserForm from "../molecules/UserForm";
+import UserForm from "../components/molecules/UserForm";
 
 const LoginPage=()=>
 {
