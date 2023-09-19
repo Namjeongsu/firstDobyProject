@@ -1,22 +1,22 @@
 import React, {ChangeEvent, useState} from 'react';
-import {gql, useMutation} from "@apollo/client";
+import { useMutation} from "@apollo/client";
 import UserInput from "../atoms/UserInput";
 import Button from "../atoms/Button";
+import {CREATE_OR_UPDATE_PERSON} from "../../api/apollo/gql/showPhoneBook.gql";
 
 
-const CREATE_OR_UPDATE_PERSON = gql`
-  mutation CreateOrUpdatePerson($auth: String, $request: PhoneRequest) {
-    createOrUpdatePerson(auth: $auth, request: $request) {
-      name
-      phoneNumber
-    }
-  }
-`;
+
 const CreateUser=()=>
 {
-    const [name,setName]=useState('');
+    const accessToken=`Bearer ${window.localStorage.getItem("accessToken")}`;
+    console.log(accessToken);
+    const [name,setName]=useState(   '');
     const [phone,setPhone]=useState('');
-    const [createOrUpdatePerson] = useMutation(CREATE_OR_UPDATE_PERSON);
+    const [createOrUpdatePerson] = useMutation(CREATE_OR_UPDATE_PERSON,{context:{
+        headers:{
+            authorization:accessToken
+        }
+        }});
 
     const onNameChange=(e:ChangeEvent<HTMLInputElement>)=>
     {
@@ -26,21 +26,22 @@ const CreateUser=()=>
     {
         setPhone(e.target.value);
     }
+    const request={
+        name,
+        phone
+    }
     const onClick=async ()=>
     {
         try{
             const result=await createOrUpdatePerson({
                 variables:{
-                    auth:'응애',
-                    request:{
-                        name,
-                        phoneNumber:phone
-                    },
+                    request
                 },
             });
             console.log(result.data);
         }catch(error)
         {
+            console.log(error)
             console.log('에러있음');
         }
     }

@@ -8,6 +8,9 @@ const UserForm=()=>
 {
     const [id,setId]=useState('');
     const [pw,setPw]=useState('');
+    const [accessToken,setAccessToken]=useState('');
+    const [refreshToken,setRefreshToken]=useState('');
+
     const navigate=useNavigate();
 
     const onIdChange=(e:ChangeEvent<HTMLInputElement>)=>{
@@ -16,27 +19,27 @@ const UserForm=()=>
     const onPwChange=(e:ChangeEvent<HTMLInputElement>)=>{
         setPw(e.target.value);
     }
-    const onClickLogin=()=>
+    const onClickLogin= ()=>
     {
-        axios.post('https://moviethree.synology.me/back/api-docs/user/login',{
+        axios.post('https://moviethree.synology.me/back/user/login',{
             id,
             pwd:pw
         }).then(response=>{
             if(response.status===200)
             {
+                const {accessToken,refreshToken}=response.data
+                setAccessToken(accessToken);
+                setRefreshToken(refreshToken);
+                // console.log(accessToken);
+                // console.log(refreshToken);
+                localStorage.setItem('accessToken',`${accessToken}`)
+                localStorage.setItem('refreshToken',`${refreshToken}`)
                 navigate("/home");
             }
-            else
-            if(response.status===400)
-                    console.log("BadRequest");
-            else if(response.status===403)
-                console.log("로그인에 실패했습니다.");
-            else if(response.status===404)
-                console.log('가입된 회원이 없습니다.');
-
         }).catch(error=>{
-            console.log(error);
             console.log("서버연결이 안됩니다.");
+            console.log(error);
+            console.log(error.message);
         });
     }
     const onClickSignUp=()=>

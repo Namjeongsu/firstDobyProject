@@ -6,14 +6,14 @@ export interface UserProps
     id:number;
     name:string;
     phone:string;
-    onRemove:(id:number)=>void;
+    onRemove:(phone:string)=>void;
 }
 const User=({id,name,phone,onRemove}:UserProps)=>
 {
     return(
         <div>
             <b>{name}의 연락처</b> <span>({phone}) </span>
-            <Button btnContent="삭제" onClick={()=>onRemove(id)}/>
+            <Button btnContent="삭제" onClick={()=>onRemove(phone)}/>
         </div>
     );
 }
