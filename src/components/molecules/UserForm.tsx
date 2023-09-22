@@ -1,8 +1,10 @@
 import React, {ChangeEvent, useState} from 'react';
 import {useNavigate} from "react-router-dom";
 import axios from "axios";
+import '../../styles/UserInput.scss'
 import UserInput from "../atoms/UserInput";
 import Button from "../atoms/Button";
+
 
 const UserForm=()=>
 {
@@ -30,16 +32,12 @@ const UserForm=()=>
                 const {accessToken,refreshToken}=response.data
                 setAccessToken(accessToken);
                 setRefreshToken(refreshToken);
-                // console.log(accessToken);
-                // console.log(refreshToken);
                 localStorage.setItem('accessToken',`${accessToken}`)
                 localStorage.setItem('refreshToken',`${refreshToken}`)
                 navigate("/home");
             }
         }).catch(error=>{
-            console.log("서버연결이 안됩니다.");
-            console.log(error);
-            console.log(error.message);
+            window.alert(error.message)
         });
     }
     const onClickSignUp=()=>

@@ -1,4 +1,7 @@
 import React, {ChangeEvent} from 'react';
+import classNames from "classnames";
+import "../../styles/UserInput.scss"
+
 
 interface UserInfoProps{
     ph:string;
@@ -10,7 +13,7 @@ const UserInput=({ph,onChange}:UserInfoProps)=>
 {
 
     return(
-      <input onChange={onChange}  placeholder={ph}/>
+      <input className={classNames("UserInput")} onChange={onChange}  placeholder={ph} />
     );
 }
 export default UserInput;

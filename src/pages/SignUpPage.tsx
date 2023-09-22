@@ -47,18 +47,10 @@ const SignUpPage=()=>{
         }).then(response=>{
             if(response.status===200)
             {
-                console.log('성공');
                 navigate("/");
             }
-            else if (response.status === 400) {
-                    console.log("badRequest")
-                } else if (response.status === 403) {
-                    console.log("이미 중복되는 값이 존재합니다.")
-                }
         }).catch(error=>{
-            console.log(error);
-            console.log('서버연결이 안되었습니다.');
-            console.log(error.message);
+           window.alert(error.message)
         })
     }
     const onClickEmail=()=>{
@@ -67,13 +59,11 @@ const SignUpPage=()=>{
         }).then(response=>{
             if(response.status===200)
             {
-                console.log('메일보내기 성공')
+                console.log('메일 전송 요청 완료')
             }
         }).catch(error=>
         {
-            console.log('실패');
-            console.log(error);
-            console.log(error.message);
+           window.alert(error.message)
         })
     }
     const onClickEmailCode=()=>{
@@ -83,12 +73,10 @@ const SignUpPage=()=>{
         }).then(response=>{
             if(response.status===200)
             {
-                console.log('인증코드 확인완료')
+                window.alert('인증코드 확인완료')
             }
         }).catch(error=>{
-            console.log('인증코드 뭔가 실패')
-            console.log(error);
-            console.log(error.message);
+            window.alert(error.message)
         })
     }
     return (

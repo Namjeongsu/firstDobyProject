@@ -1,0 +1,34 @@
+$blue: #228be6; // 주석 선언
+
+.Button {
+  display: inline-flex; //줄바꿈이 일어나지않는 flex 속성 적용
+  color: white; //텍스트 글자 색깔
+  text-align:center; //텍스트 수평 정렬
+  line-height: 2.25rem;//텍스트 블록의 줄간격을 지정해줌.
+  font-weight: bold;//텍스트의 글꼴 두깨를 정해줌.
+  outline: none; //외곽선을 보여줌
+  border-radius: 4px; //둘레를 둥글게하는 정도
+  border: none; //둘레를 보여주는 것.
+  cursor: pointer;//커서 올릴시에 마우스가 손가락 모양이 됨.
+
+  height: 2.25rem; //버튼의 높이
+  padding-left: 1rem;//버튼내부 컨텐츠의 padding
+  padding-right: 1rem;
+  font-size: 1rem; //버튼 내부 글자의 크기
+
+  background: $blue; // 버튼 배경색
+  //버튼에 마우스 올렸을 때.
+  &:hover {
+    background: lighten($blue, 10%); // 색상 10% 밝게
+  }
+
+  //버튼 클릭시에
+  &:active {
+    background: darken($blue, 10%); // 색상 10% 어둡게
+  }
+
+  //부모요소가 두개가 연달아 있을때에 대한 속성
+  & + & {
+    margin-left: 0.5rem;
+  }
+}
