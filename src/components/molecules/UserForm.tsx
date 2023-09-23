@@ -48,7 +48,7 @@ const UserForm=()=>
     return(
         <>
         <UserInput onChange={onIdChange} ph="아이디를 입력하세요"/>
-        <UserInput onChange={onPwChange} ph="비밀번호를 입력하세요"/>
+        <UserInput onChange={onPwChange} type="password" ph="비밀번호를 입력하세요"/>
             <Button  btnContent="로그인" onClick={onClickLogin}/>
             <Button  btnContent="회원가입" onClick={onClickSignUp}/>
         </>

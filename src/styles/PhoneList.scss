@@ -1,0 +1,16 @@
+.PhoneList{
+  width:520px;
+  background: aqua;
+  align-items: center; /* 가로 중앙 정렬 */
+  position: relative;
+
+  margin:0 auto;
+  margin-top:20px;
+
+  display: flex;
+  flex-direction: column;
+
+  &>p{
+    font-size:30px;
+  }
+}

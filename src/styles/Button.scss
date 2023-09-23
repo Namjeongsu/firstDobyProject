@@ -1,7 +1,7 @@
 $blue: #228be6; // 주석 선언
 
 .Button {
-  display: inline-flex; //줄바꿈이 일어나지않는 flex 속성 적용
+
   color: white; //텍스트 글자 색깔
   text-align:center; //텍스트 수평 정렬
   line-height: 2.25rem;//텍스트 블록의 줄간격을 지정해줌.
@@ -15,6 +15,8 @@ $blue: #228be6; // 주석 선언
   padding-left: 1rem;//버튼내부 컨텐츠의 padding
   padding-right: 1rem;
   font-size: 1rem; //버튼 내부 글자의 크기
+  margin-top:0.1rem;
+  margin-left:0.2rem;
 
   background: $blue; // 버튼 배경색
   //버튼에 마우스 올렸을 때.
@@ -29,6 +31,7 @@ $blue: #228be6; // 주석 선언
 
   //부모요소가 두개가 연달아 있을때에 대한 속성
   & + & {
-    margin-left: 0.5rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
   }
 }

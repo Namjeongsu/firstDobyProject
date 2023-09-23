@@ -1,0 +1,13 @@
+.InputForm{
+  display:flex;
+  flex-direction: row;
+
+  &+&
+  {
+    margin-top:0.5rem;
+  }
+
+  &>input{
+    width:405px;
+  }
+}

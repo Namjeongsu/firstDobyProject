@@ -1,0 +1,16 @@
+.CreatePhoneForm{
+  position:fixed;
+  margin:auto;
+  display:flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  //align-items: center;
+  //align-content: center;
+  bottom:30px;
+  transform: translateX(-50%); /* 요소의 가로 크기의 절반만큼 왼쪽으로 이동하여 중앙 정렬합니다. */
+  left:50%;
+  &>input{
+    width:512px;
+  }
+
+}

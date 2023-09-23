@@ -1,5 +1,6 @@
 import React from 'react';
 import {useMutation} from "@apollo/client";
+import classNames from "classnames";
 import {DELETE_PERSON} from "../../api/apollo/gql/showPhoneBook.gql";
 import Button from "./Button";
 
@@ -41,8 +42,10 @@ const User=({id,name,phone}:UserProps)=>
     };
     return(
         <div>
-            <b>{name}의 연락처</b> <span>({phone}) </span>
+            <div className={classNames('PhoneListItem')}>
+            <b>{name}의 연락처 ({phone})</b>
             <Button btnContent="삭제" onClick={()=>onRemove(phone)}/>
+            </div>
         </div>
     );
 }
